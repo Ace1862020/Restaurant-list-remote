@@ -12,7 +12,7 @@ const resranSchema = new Schema({
   location: string,
   phone: string,
   google_map: string,
-  rating: string,
+  rating: Number,
   description: string
 })
 
