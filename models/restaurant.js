@@ -3,17 +3,17 @@ const Schema = mongoose.Schema
 
 const resranSchema = new Schema({
   name: {
-    type: string,
+    type: String,
     required: true
   },
-  name_en: string,
-  category: string,
-  image: string,
-  location: string,
-  phone: string,
-  google_map: string,
+  name_en: String,
+  category: String,
+  image: String,
+  location: String,
+  phone: String,
+  google_map: String,
   rating: Number,
-  description: string
+  description: String
 })
 
 module.exports = mongoose.model('Resran', resranSchema)

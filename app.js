@@ -3,7 +3,8 @@ const express = require('express')
 const port = 3000
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
-const restaurantList = require('./restaurants.json')
+const Resran = require('./models/restaurant')
+const restaurantList = require('./restaurants.json').results
 
 const app = express()
 
@@ -20,27 +21,31 @@ db.once('open', () => {
 })
 
 // set template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 // setting static files
 app.use(express.static('public'))
 
 // routes setting
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  // Get all the Resran data
+  Resran.find()
+    .lean()
+    .then(resrans => res.render('index', { resrans }))
+    .catch(error => console.error(error))
 })
 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  const restaurants = restaurantList.results.filter(restaurant => {
+  const restaurants = restaurantList.filter(restaurant => {
     return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
   })
   res.render('index', { restaurants: restaurants, keyword: keyword })
 })
 
 app.get('/:rest_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.rest_id)
+  const restaurant = restaurantList.find(restaurant => restaurant.id.toString() === req.params.rest_id)
   res.render('show', { restaurant: restaurant })
 })
 
