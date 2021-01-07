@@ -2,23 +2,18 @@
 const express = require('express')
 const port = 3000
 const exphbs = require('express-handlebars')
+const restaurantList = require('./restaurants.json')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Resran = require('./models/restaurant')
-const restaurantList = require('./restaurants.json').results
 
 const app = express()
 
 // Establish connection with mongoDB
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
+db.on('error', () => { console.log('mongodb error!!') })
+db.once('open', () => { console.log('mongodb connected!') })
 
 // set template engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -26,6 +21,18 @@ app.set('view engine', 'hbs')
 
 // setting static files
 app.use(express.static('public'))
+
+// setting body-parser
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// Search
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurants = restaurantList.results.filter(restaurant => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { restaurants: restaurants, keyword: keyword })
+})
 
 // routes setting
 app.get('/', (req, res) => {
@@ -36,17 +43,25 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurants = restaurantList.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
-  })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
+// Show Page
+app.get('/restaurant/:_id', (req, res) => {
+  const id = req.params.id
+  return Resran.findById(id)
+    .lean()
+    .then(resrans => res.render('show', { resrans }))
+    .catch(error => console.log(error))
 })
 
-app.get('/:rest_id', (req, res) => {
-  const restaurant = restaurantList.find(restaurant => restaurant.id.toString() === req.params.rest_id)
-  res.render('show', { restaurant: restaurant })
+// Create Page
+app.get('/create', (req, res) => {
+  return res.render('create')
+})
+
+app.post('/create/new', (req, res) => {
+  const name = req.body.name
+  return Resran.create({ name })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 // start and listen on the Express sever
