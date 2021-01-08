@@ -45,10 +45,10 @@ app.get('/', (req, res) => {
 
 // Show Page
 app.get('/restaurant/:_id', (req, res) => {
-  const id = req.params.id
+  const id = req.params._id
   return Resran.findById(id)
     .lean()
-    .then(resrans => res.render('show', { resrans }))
+    .then(resran => res.render('show', { resran }))
     .catch(error => console.log(error))
 })
 
