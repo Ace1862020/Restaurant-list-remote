@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row justify-content-center my-5">
+    <dev class="create-form col-md-10">
+      <form action="/restaurant/{{resran._id}}/edit" method="POST">
+        <div class="justify-content-center">
+          <!--餐廳名稱-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="name" class="form-label">Restaurant Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="name" name="name" placeholder="餐廳名稱"
+                value="{{ resran.name }}">
+            </div>
+          </div>
+          <!--類型選單-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="category-select" class="form-label">Category</label>
+            <div class="input-group">
+              <select class="form-control" id="category-select" name="category" value="{{ resran.category }}">
+                <option value="選擇餐廳類型...">選擇餐廳類型...</option>
+                <option value="日本料理">日本料理</option>
+                <option value="美式餐廳">美式餐廳</option>
+                <option value="義式餐廳">義式餐廳</option>
+                <option value="中東料理">中東料理</option>
+                <option value="泰式餐廳">泰式餐廳</option>
+                <option value="中式餐廳">中式餐廳</option>
+                <option value="早午餐">早午餐</option>
+                <option value="酒吧">酒吧</option>
+                <option value="咖啡">咖啡</option>
+                <option value="其他異國料理">其他異國料理</option>
+              </select>
+            </div>
+          </div>
+          <!--照片-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="phtot" class="form-label">Photo</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="photo" name="image" placeholder="http://"
+                value="{{ resran.image }}">
+            </div>
+          </div>
+          <!--地址-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="address" class="form-label">Address</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="address" name="location" placeholder="餐廳地址"
+                value="{{ resran.location }}">
+            </div>
+          </div>
+          <!--聯絡-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="connection" class="form-label">Phone</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="connection" name="phone" placeholder="餐廳電話"
+                value="{{ resran.phone }}">
+            </div>
+          </div>
+          <!--map-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="map" class="form-label">Map</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="map" name="google_map" placeholder="Map"
+                value="{{ resran.google_map }}">
+            </div>
+          </div>
+          <!--評價-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="rating" name="rating" placeholder="評價"
+                value="{{ resran.rating }}">
+            </div>
+          </div>
+          <!--介紹-->
+          <div class="input-group col-md-10 mb-3">
+            <label for="description" class="form-label">Introduction</label>
+            <div class="input-group">
+              <textarea type="text" class="form-control" id="description" name="description" placeholder="餐廳介紹"
+                value="{{ resran.description }}"></textarea>
+            </div>
+          </div>
+        </div>
+        <!--Submit & Back-->
+        <div class="d-flex justify-content-between col-md-10">
+          <button type="submit" class="btn btn-info">Submit</button>
+          <a href="/">
+            <button type="button" class="btn btn-secondary">Back</button>
+          </a>
+        </div>
+      </form>
+    </dev>
+  </div>
+</div>

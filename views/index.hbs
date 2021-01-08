@@ -37,12 +37,16 @@
             </div>
             <div class="card-body pt-1 px-2">
               <hr>
-              <form action="" method="GET">
-                <a href=""><i class="far fa-edit"></i></a>
+              <form action="/restaurant/{{this._id}}/edit" method="GET">
+                <button type="submit">
+                  <i class="far fa-edit"></i>
+                </button>
               </form>
 
-              <form action=" /restaurants/{{this.id}}/delete" method="POST">
-                <button type="submit"></button>
+              <form action="./restaurants/{{this.id}}/delete" method="POST">
+                <button type="submit">
+                  <i class="far fa-minus-square"></i>
+                </button>
               </form>
             </div>
           </div>

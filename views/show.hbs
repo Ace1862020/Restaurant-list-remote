@@ -37,5 +37,16 @@
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{resran.image}}" alt="{{resran.name}}"
         style="max-width: 600px;">
     </div>
+    <!--Submit & Back-->
+    <div class="d-flex justify-content-between col-md-10">
+      <form action="/restaurant/{{resran._id}}/edit" method="GET">
+        <button type="submit">
+          <i class="far fa-edit"></i>
+        </button>
+      </form>
+      <a href="/">
+        <button type="button" class="btn btn-secondary">Back</button>
+      </a>
+    </div>
   </div>
 </div>

@@ -64,6 +64,34 @@ app.post('/create/new', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//Edit Page
+app.get('/restaurant/:_id/edit', (req, res) => {
+  const id = req.params._id
+  return Resran.findById(id)
+    .lean()
+    .then(resran => res.render('edit', { resran }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurant/:_id/edit', (req, res) => {
+  const id = req.params._id
+  console.log('body:', body)
+  return Resran.findById(id)
+    .then(resran => {
+      resran.name = req.body.name
+      resran.category = req.body.category
+      resran.image = req.body.image
+      resran.location = req.body.location
+      resran.phone = req.body.phone
+      resran.google_map = req.body.google_map
+      resran.rating = req.body.rating
+      resran.description = req.body.description
+      return resran.save()
+    })
+    .then(() => res.redirect(`/restaurant/${id}`))
+    .catch(error => console.log(error))
+})
+
 // start and listen on the Express sever
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)
