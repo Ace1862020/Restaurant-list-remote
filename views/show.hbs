@@ -39,14 +39,22 @@
     </div>
     <!--Submit & Back-->
     <div class="d-flex justify-content-between col-md-10">
+      <!--Back-->
+      <a href="/">
+        <button type="button" class="btn btn-secondary">Back</button>
+      </a>
+      <!--Submit-->
       <form action="/restaurant/{{resran._id}}/edit" method="GET">
         <button type="submit">
           <i class="far fa-edit"></i>
         </button>
       </form>
-      <a href="/">
-        <button type="button" class="btn btn-secondary">Back</button>
-      </a>
+      <!--Delete-->
+      <form action="/restaurants/{{resran._id}}/delete" method="POST" style="display:inline;">
+        <button type="submit" class="btn btn-danger">
+          <i class="far fa-minus-square"></i>
+        </button>
+      </form>
     </div>
   </div>
 </div>

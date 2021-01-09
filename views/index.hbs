@@ -35,16 +35,18 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
             </div>
+            <!--Edit & Delete-->
             <div class="card-body pt-1 px-2">
               <hr>
-              <form action="/restaurant/{{this._id}}/edit" method="GET">
-                <button type="submit">
+              <!--Edit-->
+              <form action="/restaurant/{{this._id}}/edit" method="GET" style="display:inline;">
+                <button type="submit" class="btn btn-primary">
                   <i class="far fa-edit"></i>
                 </button>
               </form>
-
-              <form action="./restaurants/{{this.id}}/delete" method="POST">
-                <button type="submit">
+              <!--Delete-->
+              <form action="/restaurant/{{this._id}}/delete" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger">
                   <i class="far fa-minus-square"></i>
                 </button>
               </form>
