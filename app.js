@@ -25,20 +25,20 @@ app.use(express.static('public'))
 // setting body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// Search
+// Routes setting
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword.trim()
   const restaurants = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+    return restaurant.category.includes(keyword) || restaurant.name.toLowerCase().includes(keyword.toLowerCase())
   })
-  if (restaurants.length === 0) {
+  if (restaurants.length == 0) {
     res.render('notfound')
   } else {
-    res.render('index', { restaurants: restaurants, keyword: keyword })
+    res.render('index', { resrans: restaurants, keyword: keyword })
   }
 })
 
-// routes setting
+// Index Page
 app.get('/', (req, res) => {
   // Get all the Resran data
   Resran.find()
