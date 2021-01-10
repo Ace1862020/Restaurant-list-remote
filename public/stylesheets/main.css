@@ -99,3 +99,13 @@ header {
   }
   
 }
+
+.btn {
+  border-radius: 50px;
+}
+
+.edit-btn {
+  color: #333;
+  background-color: transparent;
+  border: none;
+}

@@ -13,9 +13,9 @@
           </div>
           <!--類型選單-->
           <div class="input-group col-md-10 mb-3">
-            <label for="category-select" class="form-label">Category</label>
+            <label for="category" class="form-label">Category</label>
             <div class="input-group">
-              <select class="form-control" id="category-select" name="category" value="{{ resran.category }}">
+              <select id="category" class="form-control" name="category" value="{{ resran.category }}">
                 <option value="選擇餐廳類型...">選擇餐廳類型...</option>
                 <option value="日本料理">日本料理</option>
                 <option value="美式餐廳">美式餐廳</option>
@@ -74,8 +74,8 @@
           <div class="input-group col-md-10 mb-3">
             <label for="description" class="form-label">Introduction</label>
             <div class="input-group">
-              <textarea type="text" class="form-control" id="description" name="description" placeholder="餐廳介紹"
-                value="{{ resran.description }}"></textarea>
+              <input type="text" class="form-control" id="description" name="description" placeholder="餐廳介紹"
+                value="{{ resran.description }}"></input>
             </div>
           </div>
         </div>

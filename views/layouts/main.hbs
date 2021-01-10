@@ -25,7 +25,10 @@
         </a>
         <div>
           <form action="/create" method="GET">
-            <button type="submit"><i class="far fa-plus-square"></i></button>
+            <button type="submit" class="edit-btn">
+              <i class="fas fa-plus"></i>
+              <span>新增餐廳</span>
+            </button>
           </form>
         </div>
       </div>
@@ -33,6 +36,29 @@
     <div class="banner"></div>
   </header>
   {{{ body }}}
+
+  <footer>
+    <div class="footer m-3 p-3 bg-light align-item-center">
+      <div class="row align-items-center justify-content-between" style="width: 100%;">
+
+        <div class="align-items-center">
+          <a href="https://github.com/Ace1862020/Restaurant-list-remote" class="mr-4"
+            style="color: rgb(148, 148, 148);">
+            My Restaurant List project</a>
+        </div>
+
+        <div class="align-items-center">
+          <a class="ml-2" href="https://github.com/Ace1862020"><i class="fab fa-github fa-2x"
+              style="color:grey"></i></a>
+        </div>
+
+        <div class="align-items-center">
+          <span> 2020 </span>
+        </div>
+
+      </div>
+    </div>
+  </footer>
 
   <!-- include javascript files here -->
   <script src="/javascripts/jquery-3.3.1.js"></script>
