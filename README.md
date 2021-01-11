@@ -9,7 +9,9 @@
 * 可以新增餐廳資訊卡
 * 可以更新編輯餐廳資訊
 * 可以刪除餐資訊
-
+###### 首頁
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/resran-index.jpg)
+###### 新增頁
 ![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/resran-create.jpg)
 
 ## 未完成清單
@@ -20,13 +22,25 @@
 
 
 ## 建置環境 - prerequisites
-1. Node.js (版本 14.15.0) - JavaScript執行環境
-2. Nodemon (版本 2.0.6) - 輔助Node.js的模組
+1. Node.js (V 14.15.0) - JavaScript執行環境
+2. Nodemon (V 2.0.6) - 輔助Node.js的模組
 3. MongoDB
 
-## 使用工具與套件 - Tools & Packages
-1. Visual Studio code - 開發環境
-2. express (版本 4.17.1) - 應用程式架構
-3. express-handlebars (版本 5.2.0) - 模板引擎
-4. body-parser (版本 1.19.0) - 解析 HTTP request 的插件
-5. mongoose 
+## 安裝 - Installation
+Install express
+```
+$ npm i espress
+```
+Require seeder
+```
+$npm run seed
+```
+Execute
+```
+$ npm run dev
+```
+Will show on terminal when server connect success.
+```
+Express is listening on localhost:${port}
+```
+browse http://localhost:3000
