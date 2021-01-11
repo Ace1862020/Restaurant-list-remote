@@ -10,7 +10,7 @@
 * 可以更新編輯餐廳資訊
 * 可以刪除餐資訊
 
----
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/resran-create.jpg)
 
 ## 未完成清單
 * 刪除餐廳跳出確認提示
