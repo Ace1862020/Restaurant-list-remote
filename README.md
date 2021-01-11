@@ -41,9 +41,9 @@ Execute
 $ npm run dev
 ```
 
-
 <br>
  `Express is listening on localhost:3000` 
-Will show on terminal when server connect success.
-<br><br>
+<br>
+ Will show on terminal when server connect success.
+<br>
 browse http://localhost:3000
