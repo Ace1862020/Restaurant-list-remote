@@ -79,7 +79,6 @@ app.get('/restaurant/:_id/edit', (req, res) => {
 
 app.post('/restaurant/:_id/edit', (req, res) => {
   const id = req.params._id
-  console.log('body:', body)
   return Resran.findById(id)
     .then(resran => {
       resran.name = req.body.name
