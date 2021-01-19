@@ -4,6 +4,7 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurants.json')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const Resran = require('./models/restaurant')
 
@@ -21,9 +22,10 @@ app.set('view engine', 'hbs')
 
 // setting static files
 app.use(express.static('public'))
-
 // setting body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
+// setting method-override
+app.use(methodOverride('_method'))
 
 // Routes setting
 app.get('/search', (req, res) => {
@@ -47,29 +49,29 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// Show Page
-app.get('/restaurant/:_id', (req, res) => {
-  const id = req.params._id
-  return Resran.findById(id)
-    .lean()
-    .then(resran => res.render('show', { resran }))
-    .catch(error => console.log(error))
-})
-
 // Create Page
-app.get('/create', (req, res) => {
+app.get('/resrans/new', (req, res) => {
   return res.render('create')
 })
 
-app.post('/create/new', (req, res) => {
+app.post('/resrans', (req, res) => {
   const name = req.body.name
   return Resran.create({ name })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
+// Show Page
+app.get('/resrans/:id', (req, res) => {
+  const id = req.params.id
+  return Resran.findById(id)
+    .lean()
+    .then(resran => res.render('show', { resran }))
+    .catch(error => console.log(error))
+})
+
 //Edit Page
-app.get('/restaurant/:_id/edit', (req, res) => {
+app.get('/resrans/:_id/edit', (req, res) => {
   const id = req.params._id
   return Resran.findById(id)
     .lean()
@@ -77,8 +79,8 @@ app.get('/restaurant/:_id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurant/:_id/edit', (req, res) => {
-  const id = req.params._id
+app.put('/resrans/:id', (req, res) => {
+  const id = req.params.id
   return Resran.findById(id)
     .then(resran => {
       resran.name = req.body.name
@@ -91,13 +93,13 @@ app.post('/restaurant/:_id/edit', (req, res) => {
       resran.description = req.body.description
       return resran.save()
     })
-    .then(() => res.redirect(`/restaurant/${id}`))
+    .then(() => res.redirect(`/resrans/${id}`))
     .catch(error => console.log(error))
 })
 
 // Delete
-app.post('/restaurant/:_id/delete', (req, res) => {
-  const id = req.params._id
+app.delete('/resrans/:id', (req, res) => {
+  const id = req.params.id
   return Resran.findById(id)
     .then(resran => resran.remove())
     .then(() => res.redirect('/'))
