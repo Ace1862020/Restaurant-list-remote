@@ -1,7 +1,7 @@
 <h1 class="mb-1 restaurant-show-title">{{resran.name}}</h1>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-10 mx-auto">
+    <div class="col-12 col-md-10 mx-auto mb-3">
 
       <p class="mb-1">
         <span class="text-secondary">
@@ -38,21 +38,27 @@
         style="max-width: 600px;">
     </div>
     <!--Submit & Back-->
-    <div class="d-flex justify-content-between col-md-10">
+    <div class="d-flex justify-content-between col-12 col-md-10 mx-auto mb-3">
       <!--Back-->
       <a href="/">
-        <button type="button" class="btn btn-secondary">Back</button>
+        <button type="button" class="btn btn-secondary">
+          <span class="show-btname">Back</span>
+        </button>
       </a>
       <!--Submit-->
       <form action="/restaurant/{{resran._id}}/edit" method="GET">
-        <button type="submit" class="btn btn-info">
-          <i class="far fa-edit"></i>
+        <button type="submit" class="btn btn-info" style="font-family: 'Noto Sans SC', sans-serif;">
+          <i class="far fa-edit">
+            <span class="show-btname">Edit</span>
+          </i>
         </button>
       </form>
       <!--Delete-->
       <form action="/resrans/{{resran._id}}?_method=DELETE" method="POST" style="display:inline;">
         <button type="submit" class="btn btn-danger">
-          <i class="far fa-minus-square"></i>
+          <i class="far fa-minus-square">
+            <span class="show-btname">Remove</span>
+          </i>
         </button>
       </form>
     </div>

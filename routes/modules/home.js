@@ -6,7 +6,7 @@ const Resran = require('../../models/restaurant')
 router.get('/', (req, res) => {
   Resran.find()
     .lean()
-    .sort({ _id: 'asc' })
+    //.sort({ _id: 'desc' })
     .then(resrans => res.render('index', { resrans }))
     .catch(error => console.error(error))
 })

@@ -1,18 +1,40 @@
 <!-- search bar -->
 <div class="container search-bar">
   <div class="search-bar-outer">
-
-    <div class="search-bar-inner">
-      <form action="/search">
-        <!-- <h4 class="mb-2">尋找餐廳：</h4> -->
-        <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-            value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>
+    <div class="row">
+      <div class="col">
+        <div class="search-bar-inner col">
+          <form action="/search">
+            <!-- <h4 class="mb-2">尋找餐廳：</h4> -->
+            <div class="input-group">
+              <input type="search" name="keyword" class="form-control" id="search-input" placeholder="輸入餐廳、分類"
+                aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
+              <div class="input-group-append">
+                <button class="btn btn-major" type="submit" id="search-button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
+
+      <div class="col">
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" role="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">
+            <span>排序選擇</span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/sort/id/asc">新到舊</a></li>
+            <li><a class="dropdown-item" href="/sort/id/desc">舊到新</a></li>
+            <li><a class="dropdown-item" href="/sort/name/asc">餐廳名稱</a></li>
+            <li><a class="dropdown-item" href="/sort/category/asc">餐廳類別</a></li>
+            <li><a class="dropdown-item" href="/sort/rating/desc">評價高至低</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

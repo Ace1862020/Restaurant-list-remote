@@ -43,6 +43,7 @@ header {
 .btn-major {
   background-color: #9b4b4b;
   color: white;
+  border-radius: 50px;
 }
 
 .form-control:focus {
@@ -78,6 +79,27 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/*Create Style*/
+.btn {
+  border-radius: 50px;
+}
+
+.main-create-btn {
+  color: #333;
+  background-color: transparent;
+  border: none;
+}
+
+.show-btname {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+.dropdown-toggle{
+  border-radius: 10px 50px 50px 10px;
+  
+  border: 1px solid #aaaaaa;
+}
+
 @media screen and (max-width: 992px) {
   
   .card img{
@@ -98,14 +120,4 @@ header {
     height: auto;
   }
   
-}
-
-.btn {
-  border-radius: 50px;
-}
-
-.edit-btn {
-  color: #333;
-  background-color: transparent;
-  border: none;
 }
