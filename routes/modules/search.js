@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const restaurantList = require('../../restaurants.json')
+const restaurantList = require('../../models/seeds/restaurants.json')
 
 // Search function
 router.get('/', (req, res) => {
