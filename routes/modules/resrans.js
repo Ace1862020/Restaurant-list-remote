@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// Edit Pae
+// Edit Page
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Resran.findById(id)

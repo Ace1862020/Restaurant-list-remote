@@ -80,8 +80,15 @@ header {
 }
 
 /*Create Style*/
-.btn {
-  border-radius: 50px;
+.account-form .account-form-outer {
+  margin: 0 auto;
+  max-width: 380px;
+  background-color: #fce2cf;
+  border-radius: 8px;
+  padding: 20px 30px;
+  border: 0;
+  margin-top: -60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-create-btn {
@@ -90,14 +97,25 @@ header {
   border: none;
 }
 
+.btn {
+  border-radius: 50px;
+}
+
 .show-btname {
   font-family: 'Noto Sans SC', sans-serif;
 }
 
 .dropdown-toggle{
   border-radius: 10px 50px 50px 10px;
-  
   border: 1px solid #aaaaaa;
+}
+
+.footer {
+  position: static;
+  height: auto;
+  padding: 10px;
+  align-items: center;
+  background-size: cover;
 }
 
 @media screen and (max-width: 992px) {
