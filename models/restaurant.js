@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const resranSchema = new Schema({
+const restaurantSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -13,7 +13,13 @@ const resranSchema = new Schema({
   phone: String,
   google_map: String,
   rating: Number,
-  description: String
+  description: String,
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
+  }
 })
 
-module.exports = mongoose.model('Resran', resranSchema)
+module.exports = mongoose.model('Restaurant', restaurantSchema)

@@ -4,7 +4,7 @@ const router = express.Router()
 
 const home = require('./modules/home')
 const search = require('./modules/search')
-const resrans = require('./modules/resrans')
+const restaurants = require('./modules/restaurants')
 const users = require('./modules/users')
 const sort = require('./modules/sort')
 
@@ -14,7 +14,7 @@ const { authenticator } = require('../middleware/auth')
 // 在需要驗證後才能使用的路由裡，加入authenticator驗證程序
 
 router.use('/search', authenticator, search)
-router.use('/resrans', authenticator, resrans)
+router.use('/restaurants', authenticator, restaurants)
 router.use('/sort', authenticator, sort)
 router.use('/users', users)
 router.use('/', authenticator, home)

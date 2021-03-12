@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-const Resran = require('../../models/restaurant')
+const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
-  Resran.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     //.sort({ _id: 'desc' })
-    .then(resrans => res.render('index', { resrans }))
+    .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
 
