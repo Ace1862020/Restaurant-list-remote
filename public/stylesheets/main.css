@@ -1,3 +1,9 @@
+body{
+  align-items: center;
+  margin: 0;
+  padding-bottom: 30px;
+}
+
 header {
   overflow: hidden;
 }
