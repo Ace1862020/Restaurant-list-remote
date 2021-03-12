@@ -8,10 +8,15 @@ const resrans = require('./modules/resrans')
 const users = require('./modules/users')
 const sort = require('./modules/sort')
 
-router.use('/', home)
-router.use('/search', search)
-router.use('/resrans', resrans)
+// 掛載 auth middleware
+const { authenticator } = require('../middleware/auth')
+
+// 在需要驗證後才能使用的路由裡，加入authenticator驗證程序
+
+router.use('/search', authenticator, search)
+router.use('/resrans', authenticator, resrans)
+router.use('/sort', authenticator, sort)
 router.use('/users', users)
-router.use('/sort', sort)
+router.use('/', authenticator, home)
 
 module.exports = router
