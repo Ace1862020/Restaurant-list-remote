@@ -15,11 +15,16 @@ const app = express()
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+// set session
 app.use(session({
   secret: 'ThisRestaurantSecret',
   resave: false,
   saveUninitialized: true
 }))
+
+// use passport.js
+const usePassport = require('./config/passport')
+usePassport(app)
 
 // setting static files
 app.use(express.static('public'))
