@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const db = mongoose.connection
 
 // Establish connection with mongoDB
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 db.on('error', () => { console.log('mongodb error!!') })
 db.once('open', () => { console.log('mongodb connected!') })

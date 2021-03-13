@@ -1,16 +1,20 @@
 // require packages used in the project
 const express = require('express')
-const port = 3000
 const exphbs = require('express-handlebars')
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const routes = require('./routes')
 require('./config/mongoose')
 
 const app = express()
+const PORT = process.env.PORT
 
 // set template engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -18,7 +22,7 @@ app.set('view engine', 'hbs')
 
 // set session
 app.use(session({
-  secret: 'ThisRestaurantSecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
@@ -49,6 +53,6 @@ app.use((req, res, next) => {
 app.use(routes)
 
 // start and listen on the Express sever
-app.listen(port, () => {
-  console.log(`Express is listening on localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Express is listening on localhost:${PORT}`)
 })
