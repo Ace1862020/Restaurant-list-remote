@@ -1,12 +1,12 @@
 [
   {
     "name": "UserOne",
-    "email": "one@example.com",
-    "password": "123456789"
+    "email": "user1@example.com",
+    "password": "12345678"
   },
   {
     "name": "UserTwo",
-    "email": "two@example.com",
-    "password": "234567890"
+    "email": "user2@example.com",
+    "password": "12345678"
   }
 ]
