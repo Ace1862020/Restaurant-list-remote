@@ -28,7 +28,7 @@ module.exports = app => {
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
-    callbackURL: process.env.FACEBOOK_CALLBACK,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL,
     profileFields: ['email', 'displayName']
   }, (accessToken, refreshToken, profile, done) => {
     const { name, email } = profile._json
@@ -44,7 +44,9 @@ module.exports = app => {
             email,
             password: hash
           }))
-          .then(user => done(null, user))
+          .then((user) => {
+            return done(null, user)
+          })
           .catch(err => done(err, false))
       })
   }))

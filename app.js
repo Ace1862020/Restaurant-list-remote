@@ -9,23 +9,13 @@ const flash = require('connect-flash')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
+const usePassport = require('./config/passport')
 const routes = require('./routes')
-require('./config/mongoose')
 
 const app = express()
 const PORT = process.env.PORT
 
-// set template engine
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
-app.set('view engine', 'hbs')
-
-// set session
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true
-}))
+require('./config/mongoose')
 
 // setting static files
 app.use(express.static('public'))
@@ -34,8 +24,18 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // setting method-override
 app.use(methodOverride('_method'))
 
+// set session
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
+
+// set template engine
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 // use passport.js
-const usePassport = require('./config/passport')
 usePassport(app)
 
 // use connect-flash

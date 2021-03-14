@@ -14,8 +14,8 @@ const { authenticator } = require('../middleware/auth')
 
 // 在需要驗證後才能使用的路由裡，加入authenticator驗證程序
 
-router.use('/search', authenticator, search)
 router.use('/restaurants', authenticator, restaurants)
+router.use('/search', authenticator, search)
 router.use('/sort', authenticator, sort)
 router.use('/users', users)
 router.use('/auth', auth)

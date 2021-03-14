@@ -43,18 +43,19 @@ router.post('/register', (req, res) => {
         return res.render('register', { errors, name, email, password, confirmPassword })
       }
       // registe 之前，先把密碼加鹽
-      return bcrypt
+      bcrypt
         .genSalt(10)
         .then(salt => bcrypt.hash(password, salt))
-        .then(hash => User.create({
-          name,
-          email,
-          password: hash
-        }))
-        .then(() => { res.redirect('/') })
-        .catch(err => console.log(err))
-    }
-    )
+        .then(hash => {
+          return User.create({
+            name,
+            email,
+            password: hash
+          })
+            .then(() => { res.redirect('/users/login') })
+            .catch(err => console.log(err))
+        })
+    })
 })
 
 // Logout route
