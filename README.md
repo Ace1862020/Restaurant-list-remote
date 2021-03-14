@@ -6,13 +6,14 @@
 * 搜尋餐廳名稱，會顯示相關關鍵字的餐資訊卡
 * 搜尋不到的時候，會顯示 not founnd
 ## 更新
+* 可以使用排序顯示
 * 可以新增餐廳資訊卡
 * 可以更新編輯餐廳資訊
 * 可以刪除餐資訊
 ###### 首頁
-![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/resran-index.jpg)
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/rest-home-page.jpg)
 ###### 新增頁
-![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/resran-create.jpg)
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/resran-create.jpg)
 
 ## 未完成清單
 * 刪除餐廳跳出確認提示
