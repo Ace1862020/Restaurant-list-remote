@@ -45,7 +45,7 @@ $ npm install
 $ npm run seed
 ```
 ```
-看到 mongodb connected! 與 done. 表示成功建立資料
+看到 ·> mongodb connected! 與 done. 表示成功建立資料
 ```
 4. 執行程式
 ```
@@ -53,8 +53,8 @@ $ npm run dev
 ```
 看到以下訊息表示啟動完成
 ```
-Express is listening on localhost:3000
-mongodb connected!
+·> Express is listening on localhost:3000
+·> mongodb connected!
 ```
 Will show on terminal when server connect success.
 <br>
