@@ -1,6 +1,8 @@
 # My Restaurant-list
 建立&編輯你喜歡的餐廳清單
 ## 特色
+* 必須先註冊/登入才能使用
+* 也可以使用Facebook登入
 * 點擊頁面左上方的LOGO，可以返回index page
 * 點擊任一餐廳資訊卡，可以查看該餐廳的詳細資料
 * 搜尋餐廳名稱，會顯示相關關鍵字的餐資訊卡
@@ -10,6 +12,9 @@
 * 可以新增餐廳資訊卡
 * 可以更新編輯餐廳資訊
 * 可以刪除餐資訊
+* 增加使用者認證功能
+###### 登入頁
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/rest_auth.jpg)
 ###### 首頁
 ![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/rest-home-page.jpg)
 ###### 新增頁
@@ -19,8 +24,6 @@
 * 刪除餐廳跳出確認提示
 * 搜尋系統更新
 * 頁面優化
-* 登入系統
-
 
 ## 建置環境 - prerequisites
 1. Node.js (V 14.15.0) - JavaScript執行環境
@@ -28,23 +31,39 @@
 3. MongoDB
 
 ## 安裝 - Installation
-[Dowload](https://github.com/Ace1862020/Restaurant-list-remote/archive/master.zip)<br>
-Install express
+1.[Dowload](https://github.com/Ace1862020/Restaurant-list-remote/archive/master.zip)<br>
+or 開啟終端機(Terminal)到欲存放的資料夾(本機)位置，輸入以下指令
 ```
-$ npm i espress
+$ git clone Ace1862020/Restaurant-list-remote
 ```
-Require seeder
+2. 安裝套件
 ```
-$npm run seed
+$ npm install
 ```
-Execute
+3. 產生預設使用者與餐廳資料
+```
+$ npm run seed
+```
+```
+看到 mongodb connected! 與 done. 表示成功建立資料
+```
+4. 執行程式
 ```
 $ npm run dev
 ```
-
-``
+看到以下訊息表示啟動完成
+```
 Express is listening on localhost:3000
-``
+mongodb connected!
+```
 Will show on terminal when server connect success.
 <br>
 browse http://localhost:3000
+
+## 測試用資料
+* Account_1
+  * email：user1@example.com
+  * pwd：12345678
+* Account_2
+  * email：user1@example.com
+  * pwd：12345678
