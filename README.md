@@ -14,11 +14,11 @@
 * 可以刪除餐資訊
 * 增加使用者認證功能
 ###### 登入頁
-![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/rest_auth.jpg)
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/photo/rest_auth.jpg)
 ###### 首頁
-![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/rest-home-page.jpg)
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/photo/rest_home_page.jpg)
 ###### 新增頁
-![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/resran-create.jpg)
+![image](https://github.com/Ace1862020/Restaurant-list-remote/blob/master/public/photo/rest_create_page.jpg)
 
 ## 未完成清單
 * 刪除餐廳跳出確認提示
